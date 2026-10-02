@@ -52,6 +52,7 @@ func (s *Server) setupRoutes() {
 	}
 	s.engine.GET("/healthz", healthzHandler)
 	s.engine.HEAD("/healthz", healthzHandler)
+	s.registerLGBRoutes() // letsgobold: favicon (lgb_branding.go)
 
 	s.engine.GET("/management.html", s.serveManagementControlPanel)
 	openaiHandlers := openai.NewOpenAIAPIHandler(s.handlers)
